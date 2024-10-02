@@ -5,6 +5,18 @@
  */
 export default function PuppyList({ setSelectedPuppyId }) {
   // TODO: Get data from getPuppies query
+  const { data: puppies = [], isLoading } = useGetPupppiesQuery();
+  if (isLoading) {
+    return <p>loading puppies...</p>;
+  }
+
+  if (error) {
+    return <p>{error.message}</p>;
+  }
+
+  if (!puppies.length) {
+    return <p>there are no puppies.</p>;
+  }
 
   return (
     <article>

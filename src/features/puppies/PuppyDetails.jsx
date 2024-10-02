@@ -8,10 +8,12 @@ export default function PuppyDetails({ selectedPuppyId, setSelectedPuppyId }) {
 
   // TODO: Use the `deletePuppy` mutation to remove a puppy when the button is clicked
 
+  const [deletePuppy] = useDeletePuppyMutation();
+
   function removePuppy(id) {
     setSelectedPuppyId();
+    deletePuppy(id);
   }
-
   // There are 3 possibilities:
   let $details;
   // 1. A puppy has not yet been selected.
